@@ -20,27 +20,29 @@ dashboardPage(
   ),
   
   dashboardBody(
-    tabsetPanel(type = "tabs", selected = "Scatter View",
+    tabsetPanel(type = "tabs", selected = "Scatterplot",
                 tabPanel("About", icon = icon("info-circle"),
                   box(title = "", status = "primary", solidHeader = FALSE, width = 12,
                       includeHTML("www/about.html")
                   )
                 ),
                 
-                tabPanel("Scatter View", icon = icon("braille"),
+                tabPanel("Scatterplot", icon = icon("braille"),
                          uiOutput("scatterBox"),
                          box(title = "Fitted Curve", status = "warning", solidHeader = FALSE, align = "center",
                              switchInput(inputId = "fitCurve", label = NULL, value = TRUE)
                          )
                 ),
                 
-                tabPanel("Ridge View", icon = icon("image"),
+                tabPanel("Ridgeplot", icon = icon("image"),
                          uiOutput("ridgeBox"),
                          box(title = "Show Raw Data", status = "warning", solidHeader = FALSE, align = "center",
                              switchInput(inputId = "ridgeRawData", label = NULL, value = FALSE)
                          )
                 )
                 
-    )
+    ),
+    
+    includeHTML("www/statcounter.html")
   )
 )

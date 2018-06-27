@@ -2,3 +2,4 @@
 *.Rp*
 .Rproj.user
 .Rhistory
+rsconnect/*

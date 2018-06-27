@@ -35,12 +35,11 @@ function(input, output) {
   
   # ScatterPlot ----
   
-  scatter_box_width_d <- reactive(input$scatterBoxWidth) %>% debounce(500)  
-  n_columns_d <- reactive(input$scatterBoxWidth %/% 250) %>% debounce(500)
+  n_columns_d <- reactive(input$scatterBoxWidth %/% 250)
   
   scatterplot_height <- function() {
     if (n_journals_d() == 1) {
-      return(scatter_box_width_d() / 1.5)
+      return(input$scatterBoxWidth / 1.5)
     } else {
       return((n_journals_d() / n_columns_d() + 1) * 200)
     }
@@ -85,13 +84,14 @@ function(input, output) {
   output$ridgeBox <- renderUI({
     box(
       title = "", status = "primary", solidHeader = FALSE, width = 12, height = ridgeplot_height() + 70,
-      plotOutput("ridgePlot") %>% withSpinner()
+      plotOutput("ridgePlot")# %>% withSpinner()
     )
   })
   
   output$ridgePlot <- renderPlot({
-    p <- ggplot(selected_data(), aes(x = `Review Time in Months`, y = `Journal Name`, fill = `Journal Name`)) +
+    p <- ggplot(selected_data(), aes(x = `Review Time in Months`, y = fct_rev(`Journal Name`), fill = `Journal Name`)) +
       scale_x_continuous(limits = c(0, input$maxMonths + .5)) +
+      scale_y_discrete(labels = function(x) { abbreviate(x, 25) } ) +
       xlab("Months") + ylab("") + 
       theme(plot.title = element_text(hjust = 0.5), 
             axis.title.x = element_text(hjust = 0.5),
