@@ -5,6 +5,7 @@ dashboardPage(
   dashboardSidebar(
     
     tags$head(
+      includeHTML("www/social.html"),
       tags$script(src = "width.js"),
       tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
     ),

@@ -2,7 +2,7 @@
 
 An app for visualizing wait time data collected by [the APA Journal Survey](https://blog.apaonline.org/2017/04/13/journal-surveys-assessing-the-peer-review-process/").
 
-Two kinds of visualization are available: scatterplots and ridgeplots. The ridgeplots show probable wait times more explicitly. But the scatterplots expose changes over time. **Note that some journals have gotten significantly better/worse in recent years.** Read [this post](http://jonathanweisberg.org/post/Journal%20Surveys/) for more.
+Two kinds of visualization are provided: scatterplots and ridgeplots. The ridgeplots show probable wait times more explicitly. But the scatterplots expose changes over time. **Note that some journals have gotten significantly better/worse in recent years.** Read [this post](http://jonathanweisberg.org/post/Journal%20Surveys/) for more.
 
 Further caveats:
 

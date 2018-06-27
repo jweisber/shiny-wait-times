@@ -105,4 +105,3 @@ function(input, output) {
     }
   }, height = ridgeplot_height)
 }
-
